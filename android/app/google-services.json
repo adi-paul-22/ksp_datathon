@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "8441516221",
+    "project_id": "ksp-datathon",
+    "storage_bucket": "ksp-datathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8441516221:android:f3dafdadfbacd4186027d4",
+        "android_client_info": {
+          "package_name": "com.example.ksp_datathon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3YQKwCpeTJNgA9wY2M9CRCKD0wYgvTNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
