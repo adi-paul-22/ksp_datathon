@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ksp_datathon/features/app/splash_screen/splash_screen.dart';
 import 'package:ksp_datathon/features/user_auth/presentation/pages/assign_task.dart';
-import 'package:ksp_datathon/features/user_auth/presentation/pages/home.dart';
+import 'package:ksp_datathon/features/user_auth/presentation/pages/home_page_web.dart';
 import 'package:ksp_datathon/features/user_auth/presentation/pages/login_page.dart';
 import 'package:ksp_datathon/features/user_auth/presentation/pages/phone_home.dart';
 import 'package:ksp_datathon/features/user_auth/presentation/pages/profile_page.dart';
 import 'package:ksp_datathon/features/user_auth/presentation/pages/scheduled_task_page.dart';
+import 'package:ksp_datathon/features/user_auth/presentation/pages/search_screen.dart';
 import 'package:ksp_datathon/features/user_auth/presentation/pages/sign_up_page.dart';
+import 'package:ksp_datathon/features/user_auth/presentation/pages/task_screen_web.dart';
 import 'package:ksp_datathon/features/user_auth/presentation/pages/update_task_page.dart';
 
 Future main() async {
@@ -46,8 +48,12 @@ class MyApp extends StatelessWidget {
         ),
         '/login': (context) => const LoginPage(),
         '/signUp': (context) => const SignUpPage(),
-        '/home': (context) => const HomePage(),
+        '/home': (context) => const HomePageWeb(),
         '/homePhone':(context) => const PhoneHomePage(),
+        '/Search':(context) =>const SearchScreenWeb(),
+        '/Tasks':(context) => const TaskScreenWeb(),
+        '/Profile':(context) => const ProfilePage(),
+      
       },
     );
   }
