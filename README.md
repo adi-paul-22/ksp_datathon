@@ -1,16 +1,39 @@
-# ksp_datathon
+# COMPSTATS
 
-A new Flutter project.
+Welcome to Compstats, the app which helps you to better analyse performance of the police and allocate resources more efficiently
 
 ## Getting Started
+## Flutter application set up
+To where you copy the code, write 
+```bash
+cd ksp_datathon
+```
+This will move you into the working directory
+To set up flutter,
+```bash
+flutter pub get
+```
 
-This project is a starting point for a Flutter application.
+## Server set up
+First inside ksp_datathon, move into the server folder to start our servers
 
-A few resources to get you started if this is your first Flutter project:
+### api_server.py
+To start api_server.py,
+```bash
+uvicorn api_server:app --reload
+```
+### Node server,
+First we need to install certain node modules 
+For this write this command
+```bash
+npm install
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To start the node server, write
+```bash
+node server
+```
+# Application Architecture
+![](assets/images/architecture.jpeg)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This explains a complex architecture of our application. We are using Flutter because it is a cross platform language and thus a single code can maintain and work in web and phone. For Data Visualization, We are using Power BI for getting insights about the data maintained by the Police. Lets break it into two parts for simplification - The web app and The Mobile App.
