@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../features/user_auth/presentation/resources/task.dart'; // Ensure this import points to your Task model correctly
 
 class TaskService {
-  final String _baseUrl = 'http://192.168.1.5:3000'; // Make sure this is the correct IP and port
+  final String _baseUrl = 'http://192.168.1.4:3000'; // Make sure this is the correct IP and port
 
   // Fetch Tasks - Assuming this works as expected
   Future<List<Task>> fetchTasks() async {
@@ -51,6 +51,15 @@ class TaskService {
 
     if (response.statusCode != 200) { // Assuming 200 is the success status code for updates
       throw Exception('Failed to update task: ${response.body}');
+    }
+  }
+
+  Future<void> deleteTask(String taskId) async {
+    final Uri deleteUrl = Uri.parse('$_baseUrl/delete-task/$taskId'); // Correct endpoint for deleting a task
+    final response = await http.delete(deleteUrl);
+
+    if (response.statusCode != 200) { // Assuming 200 is the success status code for deletes
+      throw Exception('Failed to delete task: ${response.body}');
     }
   }
 }
