@@ -35,11 +35,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text("Login"),
-      ),
-      body: Center(
+      body: Center(child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 500, // Sets the maximum width to 200 pixels
+          ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
@@ -156,6 +155,7 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
         ),
+      ),
       ),
     );
   }

@@ -21,7 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  String _selectedPosition = 'Position1';
+  String _selectedPosition = 'SP';
 
   bool isSigningUp = false;
 
@@ -41,6 +41,10 @@ class _SignUpPageState extends State<SignUpPage> {
         title: const Text("Sign Up Page"),
       ),
       body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 500, // Sets the maximum width to 200 pixels
+          ),
         child: SingleChildScrollView( // Added SingleChildScrollView for better usability
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
@@ -77,7 +81,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 10),
               DropdownButtonFormField<String>(
                 value: _selectedPosition,
-                items: <String>['Position1', 'Position2', 'Position3', 'Position4']
+                items: <String>['SP','ACP', 'DSP', 'SI', 'ASP','DSI']
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -137,6 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ],
           ),
         ),
+      ),
       ),
     );
   }

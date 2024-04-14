@@ -76,9 +76,6 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-      ),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
