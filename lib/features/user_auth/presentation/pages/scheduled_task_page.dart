@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class ScheduledTasksPage extends StatefulWidget {
-  const ScheduledTasksPage({super.key});
+  const ScheduledTasksPage({Key? key}) : super(key: key);
 
   @override
   _ScheduledTasksPageState createState() => _ScheduledTasksPageState();
@@ -18,8 +18,10 @@ class _ScheduledTasksPageState extends State<ScheduledTasksPage> {
   void initState() {
     super.initState();
     _scheduledTasks = {
-      // Example tasks, replace with your own logic and dat
-      DateTime.utc(2024, 3, 19): ['Beat: 4'],
+      DateTime.utc(2024, 3, 19): ['Beat: 4                                Morning Duty'],
+      DateTime.utc(2024, 4, 15): ['Beat: 3                                Evening Duty'],
+      DateTime.utc(2024, 4, 16): ['Beat: 2                                Morning Duty'],
+      DateTime.utc(2024, 4, 17): ['Beat: 10                               Night Duty'],
     };
 
     _selectedDay = _focusedDay;
@@ -33,6 +35,7 @@ class _ScheduledTasksPageState extends State<ScheduledTasksPage> {
       appBar: AppBar(
         title: const Text('Scheduled Tasks'),
         backgroundColor: Colors.lightGreen,
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [
@@ -45,17 +48,15 @@ class _ScheduledTasksPageState extends State<ScheduledTasksPage> {
               setState(() {
                 _selectedDay = selectedDay;
                 _focusedDay = focusedDay;
-                _selectedTasks = _scheduledTasks[_selectedDay!] ?? [];
+                _selectedTasks = _scheduledTasks[selectedDay] ?? [];
               });
             },
             eventLoader: (day) => _scheduledTasks[day] ?? [],
             calendarStyle: CalendarStyle(
-              // Customize the current date style
               todayDecoration: BoxDecoration(
                 color: Colors.blue,
                 shape: BoxShape.circle,
               ),
-              // Customize the selected date style
               selectedDecoration: BoxDecoration(
                 color: Colors.lightGreen,
                 shape: BoxShape.circle,
@@ -72,26 +73,19 @@ class _ScheduledTasksPageState extends State<ScheduledTasksPage> {
           ),
           const Divider(),
           Expanded(
-  child: _selectedTasks.isEmpty
-      ? const Center(child: Text('No tasks for today'))
-      : ListView.builder(
-          itemCount: _selectedTasks.length,
-          itemBuilder: (context, index) {
-            return Card(
-              child: ListTile(
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(_selectedTasks[index]), // Displays the task title
-                    const Text('beat: 4'), // Static content for demonstration
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
-),
-
+            child: _selectedTasks.isEmpty
+                ? const Center(child: Text('No tasks for today'))
+                : ListView.builder(
+                    itemCount: _selectedTasks.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        child: ListTile(
+                          title: Text(_selectedTasks[index]), // Displays the task description
+                        ),
+                      );
+                    },
+                  ),
+          ),
         ],
       ),
     );
